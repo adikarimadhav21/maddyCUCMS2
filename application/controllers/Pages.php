@@ -1,22 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Pages extends CI_Controller {
 
 	public function __construct() {
 		parent:: __construct();
 
 		$this->load->helper('url');
 		$this->load->model('Mdl_Pages');
-			}
+	}
 
-	public function index() {
+	function _remap($url) {
+		$this->index($url);
+	}
+
+	public function index($url) {
 		$this->load->view('front/header');
 		$ParentPageArray['ActiveParentPageInfo'] = $this->Mdl_Pages->getAllActiveParentPages();
-		$getAboutPageContentForHome['getAboutConentForHome'] = $this->Mdl_Pages->getAboutConentForHome();
+		$pageData['getPageInfoById'] = $this->Mdl_Pages->getPageInfoById($url);
 		$this->load->view('front/nav', $ParentPageArray);
-		$HomePageData['homeData'] = $this->Mdl_Pages->getAboutConentForHome();
-		$this->load->view('front/home', $getAboutPageContentForHome);
+		$this->load->view('front/page', $pageData);
 		$this->load->view('front/footer');
 	}
 

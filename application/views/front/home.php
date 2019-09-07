@@ -58,7 +58,7 @@
 						<div class="content">
 							<img src="<?php echo base_url(); ?>application/assets/front/images/madhav_adhikari.jpg" class="img-thumbnail mr-2 img-responsive img-profile float-left" />
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet vehicula eleifend. Nulla vulputate finibus orci, et placerat erat varius vitae. Aliquam imperdiet non mauris pharetra posuere. Donec sodales lorem eu ultricies dapibus. Mauris id dolor dolor. Mauris lectus neque, sagittis id eleifend vel, congue vel erat. Donec dictum ligula elit, eu venenatis lectus rutrum eget. Fusce egestas sapien elit, at fermentum erat faucibus non. Curabitur nec vestibulum magna. Vivamus interdum ultricies nisl, tempor auctor neque vestibulum in. Maecenas et eros neque. Nullam pharetra neque ut diam ultricies, sit amet molestie risus faucibus. Nulla gravida mauris vel felis tincidunt molestie.
+								<?php echo $getAboutConentForHome[0]->page_content;?>
 							</p>
 							<a href="about.html" class="btn btn-primary btn-read-more"><i class="fa fa-list-ul"></i> Read More</a>
 						</div>

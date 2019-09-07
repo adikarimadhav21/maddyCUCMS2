@@ -36,8 +36,7 @@
                         <td scope="row"><a href="<?php echo base_url(); ?>AdminDashboard/addPage">Add Page</a></td>
                             </tr>
                             <tr>
-                            <td scope="row"><a href="<?php echo base_url(); ?>AdminDashboard/viewAllPages">View Pages</a></td>
-                            </tr>
+                            <td scope="row"><a href="<?php echo base_url(); ?>AdminDashboard/viewAllPages">View/Update
                     </table>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-lg-3">

@@ -38,8 +38,10 @@
 								<td><?php echo $user->full_name; ?></td>
 								<td><?php echo $user->user_name; ?></td>
 								<td><a type="button" class="btn btn-sm btn-danger" href="<?php echo base_url().'AdminDashboard/viewUser/'.$user->id ?>"><i class="fa fa-eye"></i> View</a>
-									<a type="button" class="btn btn-sm btn-danger" href="<?php echo base_url().'AdminDashboard/UpdateUser/'.$user->id ?>"><i class="fa fa-edit"></i> Edit</a></td>
-								</tr>
+									<a type="button" class="btn btn-sm btn-danger" href="<?php echo base_url().'AdminDashboard/UpdateUser/'.$user->id ?>"><i class="fa fa-edit"></i> Edit</a>
+								<a type="button" class="btn btn-sm btn-danger" href="<?php echo base_url().'AdminDashboard/deleteUser/'.$user->id ?>"><i class="fa fa-edit"></i> Delete</a></td>
+
+							</tr>
 								<?php
 							}
 

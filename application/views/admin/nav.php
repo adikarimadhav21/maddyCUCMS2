@@ -8,13 +8,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">Madhav Adhikari | Content Management System</a>
+			<a class="navbar-brand" href="<?php echo base_url(); ?>AdminDashboard/">Madhav Adhikari | Content Management System</a>
 		</div>
 		<!-- Top Menu Items -->
 		<ul class="nav navbar-right top-nav">
 			
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $CurrentUserInfo[0]-> full_name; ?> <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li>
 						<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -47,13 +47,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript;" data-toggle="collapse" data-target="#page"> Manage Page <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#page"> Manage Page <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="page" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>AdminDashboard/addPage">Add Page</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>AdminDashboard/viewPages">View/Update Page</a>
+                                <a href="<?php echo base_url(); ?>AdminDashboard/viewAllPages">View/Update Page</a>
                             </li>
                         </ul>
                     </li>

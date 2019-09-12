@@ -1,0 +1,74 @@
+1. Download CI framework
+Download link: https://codeigniter.com/download 
+
+2. Extract and copy the CI Core files to your htdocs folder.
+
+3. Open browser and go to http://localhost/<your application folder name inside htdocs directory>
+	You should see a default CI  welcome page.
+
+4. Start your own application development. Start by editing config
+i) application/config/autoload.php
+	a) $autoload['libraries'] = array('database', 'session');
+	b) $autoload['helper'] = array('url');
+ii) application/config/config.php
+	a) $config['base_url'] = 'http://localhost/<your application folder name>/';
+iii) application/config/database.php
+	a) configure your own database, change hostname, username, password, dbname
+iv) application/config.routes.php
+	a) $route['default_controller'] = 'Home';
+	This is the Controller name which will be loaded as default. In above case, we will need a Controller class Home.php inside
+	application/controllers/Home.php
+
+Optional:
+With above configuration, the page URL will be something like this in every other pages than base_url (refer to above point 4-ii for base_url)
+http://localhost/myapplication/index.php/other-page-url
+
+If we want to remove index.php from above url sample, we will need to configure this as below:
+application/config/config.php
+set value as below
+$config['index_page'] = '';
+
+create a file named as .htaccess inside root folder of your application (e.g. htdocs/myapplication/.htaccess)
+paste the following lines
+
+#########################################################################################################
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /myapplication/
+
+    #Removes access to the system folder by users.
+    #Additionally this will allow you to create a System.php controller,
+    #previously this would not have been possible.
+    #'system' can be replaced if you have renamed your system folder.
+    RewriteCond %{REQUEST_URI} ^system.*
+    RewriteRule ^(.*)$ /index.php?/$1 [L]
+    
+    #When your application folder isn't in the system folder
+    #This snippet prevents user access to the application folder
+    #Submitted by: Fabdrol
+    #Rename 'application' to your applications folder name.
+    RewriteCond %{REQUEST_URI} ^application.*
+    RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+    #Checks to see if the user is attempting to access a valid file,
+    #such as an image or css document, if this isn't true it sends the
+    #request to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    # Submitted by: ElliotHaughin
+
+    ErrorDocument 404 /index.php
+</IfModule>
+##########################################################################################################
+
+update RewriteBase with your application folder name.
+
+go to your url now without index.php in between of it.
+
+http://localhost/myapplication/Home
